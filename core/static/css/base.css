@@ -1,0 +1,96 @@
+/* g-seed - baseline design tokens and layout.
+   Replace or extend. Pages may add their own <style> blocks. */
+
+:root {
+  --c-bg: #ffffff;
+  --c-fg: #1a1a1a;
+  --c-muted: #6b6b6b;
+  --c-accent: #2563eb;
+  --c-border: #e5e5e5;
+  --c-surface: #fafafa;
+
+  --ff-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ff-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-8: 48px;
+
+  --r-sm: 4px;
+  --r-md: 8px;
+
+  --maxw: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: var(--c-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, pre {
+  font-family: var(--ff-mono);
+  background: var(--c-surface);
+  border-radius: var(--r-sm);
+}
+code { padding: 2px 5px; font-size: 0.9em; }
+pre { padding: var(--sp-4); overflow-x: auto; }
+pre code { padding: 0; background: transparent; }
+
+.site-header,
+.site-main,
+.site-footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--sp-5);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--c-border);
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-4);
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--c-fg);
+  font-size: 1.1rem;
+}
+
+.site-nav { display: flex; gap: var(--sp-4); }
+.site-nav a { color: var(--c-muted); }
+.site-nav a:hover { color: var(--c-fg); text-decoration: none; }
+
+.site-main {
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-8);
+  min-height: 60vh;
+}
+
+.site-main h1 { margin-top: 0; font-size: 2rem; letter-spacing: -0.02em; }
+.site-main h2 { font-size: 1.4rem; margin-top: var(--sp-6); }
+
+.site-footer {
+  border-top: 1px solid var(--c-border);
+  color: var(--c-muted);
+  padding-top: var(--sp-4);
+  padding-bottom: var(--sp-6);
+}
+
+.site-footer a { color: var(--c-muted); }

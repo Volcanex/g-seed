@@ -1,0 +1,130 @@
+/* ============================================================
+   Admin chrome - workshop styles for /admin/* pages.
+   Panels, tables, status pills, form chrome, the login box.
+   Works with the drawer in nav.css (no separate top strip).
+   ============================================================ */
+
+body.is-admin-page .site-header {
+  border-bottom: 1px solid var(--c-border);
+}
+body.is-admin-page h1 { margin-top: var(--sp-3); }
+body.is-admin-page .lede {
+  color: var(--c-muted);
+  font-size: 1rem;
+}
+
+/* Panels - group sections inside admin pages */
+.adm-panel {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  margin: var(--sp-4) 0;
+  background: var(--c-bg);
+}
+.adm-panel h3 { margin-top: 0; }
+
+/* Tables */
+.adm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.adm-table th {
+  text-align: left;
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-muted);
+  font-weight: 500;
+}
+.adm-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--c-border);
+  vertical-align: top;
+}
+
+/* Status pills - generic colours; restyle in your project's CSS */
+.adm-pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.adm-pill-pending  { background: var(--c-surface); color: var(--c-muted); }
+.adm-pill-running  { background: #f6e7c2; color: #8b6020; }
+.adm-pill-complete { background: #d6e8c8; color: #2f5126; }
+.adm-pill-failed   { background: #f1c7b9; color: #6e2f1c; }
+
+/* Form controls */
+.adm-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+.adm-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--c-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.adm-form input,
+.adm-form select,
+.adm-form textarea {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  color: var(--c-fg);
+}
+.adm-form textarea {
+  font-family: var(--ff-mono);
+  min-height: 200px;
+  resize: vertical;
+}
+.adm-form input:focus,
+.adm-form select:focus,
+.adm-form textarea:focus {
+  outline: none;
+  border-color: var(--c-accent);
+}
+.adm-form .full { grid-column: 1 / -1; }
+.adm-form button.primary {
+  background: var(--c-accent);
+  color: var(--c-bg);
+  border: 0;
+  border-radius: var(--r-sm);
+  padding: 10px 20px;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+.adm-form button.primary:hover { opacity: 0.9; }
+.adm-form .feedback {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  min-height: 18px;
+}
+.adm-form .feedback.ok  { color: #2f5126; }
+.adm-form .feedback.err { color: #8b1a1a; }
+
+/* Login page - centred, minimal */
+body.is-admin-login .site-main {
+  max-width: 360px;
+  margin-top: 18vh;
+}
+.login-box h1 {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 var(--sp-4);
+}
+.login-box .feedback { margin-top: 8px; }

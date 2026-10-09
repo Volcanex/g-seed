@@ -1,0 +1,39 @@
+<style>
+  .hero { padding: var(--sp-6) 0; }
+  .hero h1 { font-size: 2.4rem; margin-bottom: var(--sp-3); }
+  .hero p { color: var(--c-muted); font-size: 1.1rem; max-width: 560px; }
+  .grid { display: grid; gap: var(--sp-4); grid-template-columns: 1fr 1fr; margin-top: var(--sp-6); }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    padding: var(--sp-5);
+    background: var(--c-surface);
+  }
+  .card h3 { margin: 0 0 var(--sp-2); font-size: 1rem; }
+  .card p { margin: 0; color: var(--c-muted); font-size: 0.95rem; }
+</style>
+
+<section class="hero">
+  <h1>{{ title }}</h1>
+  <p>{{ description }}</p>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <h3>Pages</h3>
+    <p>Drop HTML fragments in <code>pages/{slug}/</code>. Run <code>python3 compile.py</code>.</p>
+  </div>
+  <div class="card">
+    <h3>APIs</h3>
+    <p>Any <code>api.py</code> with a <code>router</code> is auto-mounted. Try <a href="/api/hello/">/api/hello/</a>.</p>
+  </div>
+  <div class="card">
+    <h3>Docs</h3>
+    <p>Every directory gets a <code>CLAUDE.md</code>. An auto-index lives in the root.</p>
+  </div>
+  <div class="card">
+    <h3>Routes</h3>
+    <p>See every mounted route at <a href="/api/_routes">/api/_routes</a>.</p>
+  </div>
+</section>

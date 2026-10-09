@@ -1,0 +1,12 @@
+# Caddyfile - fronts the FastAPI app with automatic TLS.
+#
+# Set DOMAIN in .env. For production set a real hostname (TLS is auto).
+# For local testing use DOMAIN=localhost (no TLS, served on :80).
+
+{$DOMAIN:localhost} {
+	encode gzip zstd
+
+	# Let the app handle everything. FastAPI serves /api/* dynamically
+	# and /* as compiled static pages from output/.
+	reverse_proxy app:8080
+}

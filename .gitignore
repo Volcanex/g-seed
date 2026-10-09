@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+.env
+.env.local
+
+output/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+# Docker / Caddy volumes if bound locally
+caddy-data/
+caddy-config/
+
+# Local compose overrides - the .example file is committed.
+docker-compose.override.yml

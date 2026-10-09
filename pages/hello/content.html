@@ -1,0 +1,23 @@
+<style>
+  .demo { padding: var(--sp-4); background: var(--c-surface); border-radius: var(--r-md); }
+  .demo code { background: transparent; }
+  button {
+    background: var(--c-accent); color: white; border: 0;
+    padding: var(--sp-2) var(--sp-4); border-radius: var(--r-sm);
+    font: inherit; cursor: pointer;
+  }
+  #out { margin-top: var(--sp-4); font-family: var(--ff-mono); font-size: 0.9rem; }
+</style>
+
+<h1>{{ title }}</h1>
+<p>{{ description }}</p>
+
+<p>This page ships with <code>pages/hello/api.py</code>. The server
+auto-discovered it on startup and mounted it at <code>/api/hello</code>.</p>
+
+<div class="demo">
+  <button onclick="fetch('/api/hello/').then(r=>r.json()).then(j=>out.textContent=JSON.stringify(j,null,2))">
+    GET /api/hello/
+  </button>
+  <pre id="out"></pre>
+</div>

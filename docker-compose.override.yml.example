@@ -1,0 +1,24 @@
+# Copy to docker-compose.override.yml for local development.
+#
+# Compose auto-merges this file on top of docker-compose.yml. It mounts
+# source into the container so edits are live, and turns on uvicorn's
+# --reload via DEBUG=1.
+#
+# docker-compose.override.yml is gitignored; this .example file is
+# committed.
+
+services:
+  app:
+    environment:
+      DEBUG: "1"
+    volumes:
+      # Source - edits take effect on uvicorn auto-reload.
+      - ./server.py:/app/server.py
+      - ./compile.py:/app/compile.py
+      - ./core:/app/core
+      - ./pages:/app/pages
+      - ./scripts:/app/scripts
+      - ./tests:/app/tests
+      # Compiled output - written by the entrypoint, kept on the host
+      # so you can inspect it.
+      - ./output:/app/output

@@ -1,0 +1,13 @@
+# Metadata for the G-System lineage crawl, which reads [tool.g-core].
+# Install dependencies with `pip install -r requirements.txt`.
+# An app cut from g-seed renames [project] and sets
+# starter = "g-seed@2.0.0" under [tool.g-core].
+[project]
+name = "g-seed"
+version = "2.0.0"
+description = "Starter template for G-System web apps: static-first pages, auto-mounted FastAPI routers and agent-indexed docs."
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+[tool.g-core]
+depends = []

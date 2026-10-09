@@ -1,0 +1,7 @@
+{
+  "title": "Home",
+  "slug": "home",
+  "description": "g-seed - a static-first FastAPI starting point.",
+  "nav": true,
+  "order": 10
+}

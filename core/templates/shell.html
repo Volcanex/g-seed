@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} - {{ site_name }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+</head>
+<body class="{{ body_class }}">
+  <header class="site-header">
+    <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
+      <span class="burger-bar"></span>
+      <span class="burger-bar"></span>
+    </button>
+    <a href="/" class="brand">{{ site_name }}</a>
+    <span class="nav-spacer"></span>
+  </header>
+
+  <aside class="nav-drawer" id="nav-drawer" hidden aria-label="Main navigation">
+    <div class="nav-drawer-head">
+      <span class="nav-drawer-brand">{{ site_name }}</span>
+      <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+
+    <nav class="nav-drawer-section">
+      <a href="/"><i class="ph ph-house"></i><span>Home</span></a>
+      <a href="/hello"><i class="ph ph-hand-waving"></i><span>Hello</span></a>
+    </nav>
+
+    <div class="nav-drawer-section nav-admin-section" id="nav-admin-section" hidden>
+      <h3>Admin</h3>
+      <a href="/admin"><i class="ph ph-gauge"></i><span>Dashboard</span></a>
+      <a href="/admin/tests"><i class="ph ph-flask"></i><span>Tests</span></a>
+      <button class="nav-logout" id="nav-logout"><i class="ph ph-sign-out"></i><span>Log out</span></button>
+    </div>
+
+    <div class="nav-drawer-section nav-login-section" id="nav-login-section">
+      <a href="/admin/login" class="nav-login"><i class="ph ph-lock"></i><span>Admin</span></a>
+    </div>
+  </aside>
+  <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
+  <main class="site-main">
+    {{! content }}
+  </main>
+
+  <footer class="site-footer">
+    <small>Built with <a href="https://github.com/Volcanex/g-seed">g-seed</a>.</small>
+  </footer>
+
+  <script src="/js/admin.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+</body>
+</html>
