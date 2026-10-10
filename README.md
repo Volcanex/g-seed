@@ -4,7 +4,7 @@ g-seed is the starter template for G-System web apps. Every g- web app is cut fr
 
 G-System is my agentic development setup. One central server runs the knowledge brain, the alert spine and the dashboard, and other hosts hang off it. Coding agents do much of the work in it, so g-seed keeps its docs where an agent looks first.
 
-This repo is source-available under the PolyForm Noncommercial 1.0.0 licence. It is not open source.
+This repo is open source under the GNU Affero General Public License v3.0.
 
 ## What you get
 
@@ -44,4 +44,4 @@ The app binds to `127.0.0.1:${HOST_PORT}` for a reverse proxy in front of it. `d
 
 ## Licence
 
-PolyForm Noncommercial 1.0.0, see `LICENSE`. Copyright Gabriel Penman. Versions published before the move to this licence were released under MIT as seed, and those grants stand (see `NOTICE`).
+Copyright (C) 2026 Gabriel Penman. Licensed under the GNU Affero General Public License v3.0 only, see `LICENSE`. Versions published before the move away from MIT were released under MIT as seed, and those grants stand (see `NOTICE`).

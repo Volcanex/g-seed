@@ -1,8 +1,7 @@
 g-seed
-Copyright 2026 Gabriel Penman
+Copyright (C) 2026 Gabriel Penman
+https://github.com/Volcanex/g-seed
 
-Required Notice: Copyright 2026 Gabriel Penman (https://github.com/Volcanex/g-seed)
+Gabriel Penman licenses this software under the GNU Affero General Public License v3.0 only, and LICENSE holds the full text.
 
-Gabriel Penman licenses this software under the PolyForm Noncommercial License 1.0.0, and LICENSE holds the full text.
-
-Gabriel Penman published earlier versions of this code under the MIT License, under the name seed, and those grants stand. Anyone who received an MIT version keeps the MIT rights to that version. The PolyForm licence alone covers changes made after the move to it.
+Gabriel Penman published earlier versions of this code under the MIT License, under the name seed, and those grants stand. Anyone who received an MIT version keeps the MIT rights to that version. The AGPL alone covers changes made after the move away from MIT.

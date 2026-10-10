@@ -26,9 +26,10 @@ off until `ADMIN_PASSWORD` is set. See the admin section below.
 `AGENTS.md` beside each `CLAUDE.md` is a symlink to it, for agents
 that read that name. Add the link whenever you add a `CLAUDE.md`.
 
-**Licence:** PolyForm Noncommercial 1.0.0 (`LICENSE`, `NOTICE`).
-Versions published before it as seed stay MIT. An app cut from g-seed
-inherits the licence unless its owner changes it.
+**Licence:** GNU AGPL v3.0 only (`LICENSE`, `NOTICE`). Earlier versions
+published as seed stay MIT. An app cut from g-seed inherits the AGPL. Only
+Gabriel can relicense g-seed's code, so an app anyone else cuts from it stays
+under the AGPL.
 
 **What this is:** the bones of a site or internal tool. Good for marketing
 sites, dashboards, small SaaS, and client work where you want a proven
