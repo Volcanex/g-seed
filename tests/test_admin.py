@@ -131,6 +131,53 @@ def test_successful_login_clears_rate_limit(client):
         assert r.status_code == 401
 
 
+def test_rate_limit_keys_on_real_ip_not_forwarded_for(client):
+    """The limiter must key on nginx's X-Real-IP, not the client-supplied
+    X-Forwarded-For. A client that rotates X-Forwarded-For on every request
+    (nginx appends to that header rather than replacing it, so its first
+    entry is attacker-controlled) must still be rate-limited, because the
+    real peer address is the same every time."""
+    real_ip = {"X-Real-IP": "203.0.113.9"}
+    for i in range(5):
+        r = client.post(
+            "/api/admin/login",
+            json={"password": "wrong"},
+            headers={**real_ip, "X-Forwarded-For": f"10.0.0.{i}"},
+        )
+        assert r.status_code == 401
+    r6 = client.post(
+        "/api/admin/login",
+        json={"password": "wrong"},
+        headers={**real_ip, "X-Forwarded-For": "10.0.0.250"},
+    )
+    assert r6.status_code == 429, (
+        "limiter was dodged by rotating X-Forwarded-For - it must key on "
+        "X-Real-IP, not the client-supplied forwarding header"
+    )
+
+
+def test_client_ip_uses_real_ip_and_ignores_forwarded_for():
+    """_client_ip reads X-Real-IP and ignores X-Forwarded-For entirely."""
+    import sys as _sys
+
+    from starlette.datastructures import Headers
+
+    admin_mod = _sys.modules.get("core.api.admin")
+    assert admin_mod is not None
+
+    class _Req:
+        def __init__(self, headers):
+            self.headers = Headers(headers)
+            self.client = None
+
+    assert (
+        admin_mod._client_ip(
+            _Req({"x-real-ip": "198.51.100.7", "x-forwarded-for": "1.2.3.4"})
+        )
+        == "198.51.100.7"
+    )
+
+
 def test_cookie_secure_defaults_to_true(monkeypatch):
     """Production default: cookie carries the Secure flag. Conftest only
     drops it for the TestClient because TestClient uses http://."""

@@ -102,13 +102,15 @@ def _admin_cookie_secure() -> bool:
 
 
 def _client_ip(request: Request) -> str:
-    """Best-effort client IP for rate limiting. Trusts X-Forwarded-For
-    because the typical seed deploy is behind nginx/Caddy. Make sure
-    your proxy strips this header from external requests (nginx and
-    Caddy both do by default)."""
-    fwd = request.headers.get("x-forwarded-for")
-    if fwd:
-        return fwd.split(",", 1)[0].strip()
+    """Client IP for rate limiting, from nginx's X-Real-IP. Your proxy
+    MUST set it (nginx: `proxy_set_header X-Real-IP $remote_addr;`).
+    We deliberately do NOT read X-Forwarded-For: nginx appends to that
+    header rather than replacing it, so its first entry is client-supplied
+    and an attacker can rotate it to get a fresh rate-limit bucket on every
+    request. X-Real-IP is set by the proxy to the real peer address."""
+    real = request.headers.get("x-real-ip")
+    if real:
+        return real.strip()
     return request.client.host if request.client else "unknown"
 
 
